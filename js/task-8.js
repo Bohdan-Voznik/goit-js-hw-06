@@ -7,13 +7,18 @@ formEl.addEventListener('submit', oSubmit)
 
 function oSubmit(event) {
   event.preventDefault();
-   const {
-    elements: { email, password }
-  } = event.currentTarget;
+  const email = event.currentTarget.elements.email.value;
+  const password = event.currentTarget.elements.password.value;
+
+  const user = {
+    email,
+    password,
+  };
+
   if (email.value === '' || password.value === '') {
     return console.log("Заполние все поля!");
   }
 
-  console.log(`Login: ${email.value}, Password: ${password.value}`);
+  console.log(user);
   event.currentTarget.reset();
 }

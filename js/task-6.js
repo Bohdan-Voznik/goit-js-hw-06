@@ -7,7 +7,7 @@ inputEl.addEventListener('blur', onInputBlur)
 
 function onInputBlur(event) {
   const inputValue = event.currentTarget.value
-  if (inputValue.length <= ETALON_VALUE_LENGTH) {
+  if (inputValue.length < ETALON_VALUE_LENGTH) {
     event.currentTarget.style.border = '2px solid red';
     return;
   }
