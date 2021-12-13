@@ -1,16 +1,17 @@
-ETALON_VALUE_LENGTH = 6;
-
 const inputEl = document.querySelector('#validation-input');
 
 inputEl.addEventListener('blur', onInputBlur)
 
+ETALON_VALUE_LENGTH = inputEl.dataset.length;
 
 function onInputBlur(event) {
   const inputValue = event.currentTarget.value
-  if (inputValue.length < ETALON_VALUE_LENGTH) {
-    event.currentTarget.style.border = '2px solid red';
+  if (inputValue.length == ETALON_VALUE_LENGTH) {
+    event.currentTarget.classList.remove('invalid');
+    event.currentTarget.classList.add('valid');
     return;
   }
-   event.currentTarget.style.border = '2px solid green';  
+  event.currentTarget.classList.add('invalid');
+  event.currentTarget.classList.remove('valid');
   
 }
